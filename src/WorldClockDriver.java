@@ -7,19 +7,14 @@ import java.time.format.DateTimeFormatter;
 public class WorldClockDriver {
 
     public static void main(String[] args) {
-        //Get WorldClock class instance
+
         WorldClock worldClock = new WorldClock();
 
-        //Instantiate some DateTimeFormatter with certain pattern
+
         DateTimeFormatter dateOnlyDTF = DateTimeFormatter.ofPattern("uuuu/MM/dd");
         DateTimeFormatter dateTimeDTF = DateTimeFormatter.ofPattern("uuuu/MM/dd HH:mm:ss");
 
-        /*
-         * Now use worldClock object to get different date and time value
-         * when print the date and time values, use DateTimeFormatter objects you
-         * create above to format the date and time values. After formatting the date
-         * and time values, the output of date and time values become more user-friendly.
-         */
+
         LocalDate nowLocalDate = worldClock.getNowForDate();
         System.out.println("nowLocalDate=" + dateOnlyDTF.format(nowLocalDate));
 
@@ -35,9 +30,7 @@ public class WorldClockDriver {
         System.out.println("nowLocalDate.getDayOfYear()=" + worldClock.getDayOfYearForNow());
         System.out.println();
 
-       /*
-      * Now try to get NOW date and time for different cities in the world plus the associated zone ID value
-      */
+
       ZonedDateTime nowZonedDateTimeForNewYork = worldClock.getNowDateTimeForNewYork();
       System.out.println("nowZonedDateTimeForNewYork=" + dateTimeDTF.format(nowZonedDateTimeForNewYork));
       System.out.printf("nowZonedDateTimeForNewYork.getZone()=" + nowZonedDateTimeForNewYork.getZone());
